@@ -23,7 +23,7 @@
 								$img_path = asset('img/noimg.png');
 							}
 							else{
-								$img_path = asset($item->galleryPhotoThumbnail->path.'/tn-'.$item->galleryPhotoThumbnail->filename);
+								$img_path = asset('storage/'.$item->galleryPhotoThumbnail->path.'/tn-'.$item->galleryPhotoThumbnail->filename);
 							}
 						?>
 							<div class="image-inner">

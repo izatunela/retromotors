@@ -21,8 +21,8 @@
 				@foreach($gallery_item->galleryAllPhotos as $photo)
 				<?php
 					$title = ucfirst(implode(' ',explode('-',$gallery_item->title)));
-					$path = $photo->path.'/'.$photo->filename;
-					$tn_path = $photo->path.'/tn-'.$photo->filename;
+					$path = 'storage/'.$photo->path.'/'.$photo->filename;
+					$tn_path = 'storage/'.$photo->path.'/tn-'.$photo->filename;
 				?>
 				<figure id="figure-wrap" data-thumb="{{asset($tn_path)}}" data-src="{{asset($tn_path)}}">
 					<a class="" data-size="{{getimagesize($path)[0]}}x{{getimagesize($path)[1]}}" itemprop="contentUrl" href="{{asset($path)}}">
