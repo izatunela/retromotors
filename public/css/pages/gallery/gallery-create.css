@@ -1,0 +1,30 @@
+#custom-template{
+	border: 1px solid red;
+	display: none;
+}
+.form-control{
+	border: 1px solid #aaa;
+	border-radius: 0px;
+	/*padding: 0 !important;*/
+}
+
+#submit-btn{
+	cursor: pointer;
+	background: #fff;
+	border: 1px solid #555;
+	color: #555;
+	border-radius: 0;
+	font-weight: bold;
+}
+#gallery-create-form{
+	/*display: none;*/
+}
+.error-msg{
+	color: red;
+	font-size: 12px;
+	position: absolute;
+	display: none;
+}
+.error-border{
+	border: 1px solid red !important;
+}

@@ -1,0 +1,75 @@
+.active-ad{
+	background-color: yellow !important;
+}
+.auto-btn-active{
+	background-color: lightgreen;
+	color: #333;
+}
+.market-create-wrap{
+	margin-bottom: 100px;
+}
+.select2-container--default .select2-results>.select2-results__options{
+	max-height: 350px;
+	font-size: 14px;
+}
+.select2-container .select2-selection--single .select2-selection__rendered{
+	padding-left: 0;
+}
+.select2-results__option{
+	display: flex;
+	align-items: center;
+}
+.select2-country-title{
+	padding-left: 15px;
+}
+.select2-custom-template-wrap{
+	display: flex;
+	align-items: center;
+}
+.market-category-form{
+	padding-left: 15px;
+}
+.form-control:hover{
+	background-color: #d400000e;
+	border-color: #d4000086;
+	transition: none;
+}
+#custom-template{
+	display: none;
+}
+#submit-btn{
+	cursor: pointer;
+	background: #fff;
+	border: 1px solid #555;
+	color: #555;
+	border-radius: 0;
+	font-weight: bold;
+}
+.checkbox-wrap{
+	display: flex;
+	align-items: center;
+}
+.checkbox-wrap label{
+	margin: 0;
+}
+.checkbox-wrap input {
+	margin: 0 10px;
+}
+.error-msg{
+	color: #fb0000;
+	font-size: 12px;
+	position: absolute;
+	display: none;
+}
+.error-border{
+	border: 1px solid #fb0000 !important;
+}
+.edit-zone{
+	margin-bottom: 100px;
+}
+.edit-item-title{
+	font-size: 1rem;
+}
+label {
+	font-size: 0.9rem;
+}

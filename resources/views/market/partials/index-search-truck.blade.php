@@ -1,0 +1,41 @@
+<div id="search-container">
+	{{Form::open(['url'=>route('search-market-truck'),'method'=>'get','id'=>'market-search-form','class'=>' ','novalidate'=>true])}}
+		<div class="row">
+			<div id="brand-container" class="col-sm-6 col-lg-4">
+				<div class="form-group">
+					{{Form::select('brand',['Svi proizvodjači'=>'Svi proizvodjači']+$brands->toArray(),$keywords['brand']??null,['id'=>'brand','class'=>'input-data select-info vehicle-brand form-control'])}}
+				</div>
+			</div>
+			<div id="model-container" class="col-sm-6 col-lg-4">
+				<div class="form-group">
+					{{Form::text('model',$keywords['model']??null,['id'=>'model','class' => 'input-data form-control','placeholder'=>'Svi modeli'])}}
+				</div>
+			</div>
+			<div class="col-sm-6 col-lg-4">
+				<div class="manufacture_year-search-wrap form-group">
+					{{Form::select('min_manufacture_year',['Godište od']+array_combine(range(1900,2019),range(1900,2019)),$keywords['min_manufacture_year']??null,['id'=>'min-year','class' => 'input-data select-info form-control'])}} - 
+					{{Form::select('max_manufacture_year',['Godište do']+array_combine(range(2019,1900),range(2019,1900)),$keywords['max_manufacture_year']??null,['id'=>'max-year','class' => 'input-data select-info form-control'])}}
+				</div>
+			</div>
+			<div class="col-sm-6 col-lg-4">
+				<div class="form-group">
+					{{Form::select('type',['Svi tipovi']+[1=>'Kamion', 'Kombi', 'Autobus', 'Kamper'],$keywords['type']??null, ['class' => 'input-data select-info form-control'])}}
+				</div>
+			</div>
+			<div class="col-sm-6 col-lg-4">
+				<div class="search-price-wrap form-group">
+					{{Form::number('min_price',$keywords['min_price']??null,['min'=>0,'class' => 'search-price input-data form-control','placeholder'=>'min EUR','oninput'=>"validity.valid||(value='')"])}} - 
+					{{Form::number('max_price',$keywords['max_price']??null,['min'=>0,'class' => 'search-price input-data form-control','placeholder'=>'max EUR','oninput'=>"validity.valid||(value='')"])}}
+				</div>
+			</div>
+			<div class="col-sm-6 col-lg-4">
+				<div class="form-group ">
+					{{Form::select('country',['Sve države']+[1=>'Srbija','Slovenija','Hrvatska','Bosna i Hercegovina','Crna Gora','Makedonija'],$keywords['country']??null,['id'=>'country','required'=>true,'class'=>'input-data select-info form-control'])}}
+				</div>
+			</div>
+			<div class="col-sm-6 col-lg-4 offset-sm-6 offset-lg-8">
+			{{Form::button('Pretraga', ['id'=>'uni-search-btn','class' => 'btn btn-primary','type'=>'submit'])}}
+			</div>
+		</div>
+	{{Form::close()}}
+</div>

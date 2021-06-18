@@ -1,0 +1,134 @@
+.user-page-wrapper{
+	margin-top: 10px; 
+}
+.form-control{
+	border-radius: 0;
+}
+.sidebar {
+	width: 27%;
+	min-width: 200px;
+	height: auto;
+}
+.sidebar-menu {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	/*padding-top: 5px;*/
+	font-size: 13px;
+}
+.menu-item {
+	color: #414141;
+	font-size: 1em;
+	font-weight: 700;
+	width: auto;
+	margin-bottom: 5px;
+	padding: 0 10px;
+	display: flex;
+	align-items: center;
+}
+.sidebar-icon {
+	font-size: 14px;
+	text-align: center;
+	width: 50px;
+}
+.profile-wrapper a {
+	/*color: #fb0000;*/
+	text-decoration: none;
+}
+.sidebar-menu a:hover,
+.sidebar-menu a:focus,
+.sidebar-menu a:active,
+.sidebar-menu a.active {
+	color: #fb0000 !important;
+	text-decoration: none;
+}
+.profile-wrapper{
+	padding: 30px;
+	border: 1px solid #ced4da;
+	background-color: #fff;
+	margin-top: 10px;
+}
+h1.name{
+	font-size: 22px;
+}
+.profile-info{
+}
+.profile-details{
+}
+.profile-mobile-nav{
+	margin: 0;
+	padding: 0;
+	border: 1px solid #ced4da;
+	/* width: 170px; */
+	text-align: center;
+}
+.drop-caret{
+	margin-left: auto;
+	margin-right: 0;
+	transition: 0.2s;
+}
+.drop-caret-r{
+	transform: rotate(180deg);
+	transition: 0.2s;
+}
+.profile-mobile-nav li{
+	list-style-type: none;
+}
+.profile-nav-drop{
+	display: none;
+	/* height: 0%; */
+	flex-direction: column;
+	padding: 0;
+	overflow: hidden;
+	/* margin-top: 10px; */
+}
+.profile-nav-drop a{
+	/* padding: 5px 10px; */
+}
+.label-profile{
+	font-weight: bold;
+}
+.profile-settings a{
+	color: #414141;
+	background: #f3f4f0;
+	padding: 5px;
+	border: 1px solid #ced4da;
+}
+.profile-settings a i {
+	color: #888;
+	font-size: 14px;
+}
+.profile-settings a:hover{
+	color: #fb0000 !important;
+}
+#submit-btn{
+	cursor: pointer;
+	background: #fff;
+	border: 1px solid #555;
+	color: #555;
+	border-radius: 0;
+	font-weight: bold;
+}
+.profile-sec-title{
+	font-size: 14px;
+	font-family: monospace;
+	text-transform: uppercase;
+}
+@media(max-width:992px){
+	.sidebar-menu{
+		flex-direction: row;
+	}
+	.sidebar-icon{
+		width: 25px;
+	}
+	.menu-item{
+		display: inline-flex;
+		margin-bottom: 0;
+		width:100%;
+		height: 100%;
+		padding: 5px 10px;
+	}
+	.profile-sec-title{
+		margin-top: 30px;
+	}
+}

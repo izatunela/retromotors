@@ -1,0 +1,149 @@
+.market-create:hover{
+	text-decoration: none;
+}
+.slider-wrapper{
+	position: relative;
+}
+.slider-img-pager{
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	position: absolute;
+	z-index: 100; /*strelice prekrivaju*/
+	padding: 4px;
+	font-size: 12px;
+	font-weight: bold;
+}
+.item-img{
+	object-fit: cover !important;
+	height: 400px;
+	width: 100%;
+}
+#figure-wrap:hover .zoom-wrap{
+	opacity: 0.7;
+}
+.zoom-wrap{
+	position: absolute;
+	opacity: 0;
+	transform: translate(-50%,-50%);
+	top: 50%;
+	left: 50%;
+}
+#zoom-overlay{
+	font-size: 9rem;
+	color: #fff;
+}
+.lSAction > a {
+    width: 60px;
+    height: 50px;
+    display: block;
+    top: 50%;
+    background: #000;
+    transform: translateY(-50%);
+    cursor: pointer;
+    position: absolute;
+    z-index: 99;
+    opacity: 0.3;
+    -webkit-transition: opacity 0.2s;
+    transition: opacity 0.2s;
+    transition: 0.2s;
+}
+.lSAction > a:hover{
+	opacity: 0.6 !important;
+}
+.wrap{
+	position: relative;
+	padding: 25px 0;
+}
+.side-info{
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+.side-info-section{
+	box-shadow: 0px 1px 1px -1px #333;
+	height: 70px;
+	background-color: #fff;
+	margin-bottom: 2px;
+}
+.side-info-section.seller{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-flow: row wrap;
+}
+.side-info-section .seller-name{
+	font-size: 16px;
+	margin: 0;
+	width: 100%;
+}
+.side-info-section .seller-phone{
+	font-size: 14px;
+}
+.side-info-section.price-sec{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-flow: row wrap;
+}
+.side-info-section .price,
+.side-info-section .price-negotiate{
+	font-size: 16px;
+	width: 100%;
+	margin: 0;
+	font-weight: bold;
+}
+.side-info-section .price-fixed{
+	font-size: 12px;
+	margin: 0;
+}
+.title{
+	display:flex;
+	justify-content: center;
+	padding: 30px;
+	background-color: #fff;
+}
+.title h5 {
+	margin: 0 !important;
+	font-family: serif;
+}
+.lSSlideOuter .lSPager.lSGallery img{
+	width: 100%;
+	height: 50px;
+	object-fit: cover;
+}
+.table td,
+.table th {
+	border-top: none;
+}
+.market-item-sec-title{
+	font-size: 14px;
+	font-family: monospace;
+	text-transform: uppercase;
+}
+.market-specification{
+	font-size: 14px !important;
+}
+.market-description{
+	font-size: 14px;
+}
+@media(max-width:576px){
+	.item-img{
+		height: 230px;
+	}
+	.side-info{
+		margin-top: 10px;
+	}
+}
+@media(max-width:375px){
+	.table td,
+	.table th{
+		font-size: 11px;
+	}
+}
+@media(max-width:342px){
+	.table td,
+	.table th{
+		font-size: 10px;
+	}
+}

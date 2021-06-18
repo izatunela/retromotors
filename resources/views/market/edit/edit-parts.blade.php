@@ -1,0 +1,127 @@
+@extends('market/edit/edit')
+	@section('content-css')
+	@endsection
+@section('content-category')
+<hr>
+<h1 class="edit-item-title">{{$item->title}}</h1>
+<hr>
+<div class="market-edit-wrap">
+	{{ Form::model($item, ['route' => ['market-parts-update','id'=> $item->id], 'method' => 'patch','files' => true,'id'=>'market-create-form','class'=>'edit-zone','novalidate'=>true]) }}
+		<span style="visibility: none" id="ed-item-id" type="hidden" data-item-id="{{$item->id}}"></span>
+		<span style="visibility: none" id="ed-item-cat" type="hidden" data-item-cat="{{$category}}"></span> 
+		@include('market/edit/all/dz-img-container')
+	<div class="row">
+			<div class="col-sm-12 col-lg-6">
+				<div class="form-group">
+					{{Form::label('title', 'Naslov',['class' => ''])}}
+					{{Form::text('title',ucfirst(implode(' ',explode('-', $item->title))),['class'=>'input-data input-info form-control','placeholder'=>'Naslov'])}}
+					<div class="error-msg">Molimo unesite naslov</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6 col-lg-3">
+				<div class="form-group">
+					{{Form::label('vehicle_category', 'Za vrstu vozila:',['class' => ''])}}
+					{{Form::select('vehicle_category', [1 => 'Automobil','Motocikl','Kamion'], $item->vehicle_category_id, ['class' => 'input-data select-info vehicle_cat form-control'])}}
+					<div class="error-msg">Molimo izaberite kategoriju</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-lg-3">
+				<div class="hide form-group">
+					{{Form::label('brand', 'Za marku vozila',['class' => ''])}}
+					@if ($item->vehicle_category_id === 1)
+						{{Form::select('brand',$auto,$item->brand_id,['id'=>'brand','class'=>'brandsAuto input-data select-info brand form-control'])}}
+					@endif
+					@if ($item->vehicle_category_id === 2)
+						{{Form::select('brand',$moto,$item->brand_id,['id'=>'brand','class'=>'brandsMoto input-data select-info brand form-control'])}}
+					@endif
+					@if ($item->vehicle_category_id === 3)
+						{{Form::select('brand',$truck,$item->brand_id,['id'=>'brand','class'=>'brandsTruck input-data select-info brand form-control'])}}
+					@endif
+					<div class="error-msg">Molimo izaberite marku vozila</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6 col-lg-3">
+				<div class="form-group">
+					{{Form::label('country', 'Lokacija',['class' => ''])}} 
+					{{Form::select('country',[1=>'Srbija','Slovenija','Hrvatska','Bosna i Hercegovina','Crna Gora','Makedonija'],$item->country_id,['id'=>'country','required'=>true,'class'=>'input-data select-info form-control'])}}
+					<div class="error-msg">Molimo izaberite drzavu</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-lg-3">
+				<div class="city form-group">
+					{{Form::label('city', 'Grad',['class' => 'city-label'])}}
+					{{Form::select('city',$cities,$item->city,['id'=>'city','class' => 'city-custom input-data select-info form-control'])}}
+					<div class="error-msg">Polje je obavezno</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6 col-lg-3">
+				<div class="form-group">
+					{{Form::label('condition', 'Stanje',['class' => ''])}}
+					{{Form::select('condition', [1 => 'Novo','Polovno'], $item->condition_id, ['class' => 'input-data select-info form-control'])}}
+					<div class="error-msg"></div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6 col-lg-3">
+				<div class="price form-group">
+					{{Form::label('price', 'Cena vozila (EUR)',['class' => ''])}}
+					{{Form::number('price',null,['min'=>'1','id'=>'price','class'=>'input-data input-info form-control','placeholder'=>'Cena','oninput'=>"validity.valid||(value='')"])}}
+					<div class="error-msg"></div>
+				</div>
+				<div class="checkbox-wrap">
+					{{Form::label('fixed_price', 'Fiksna cena',['class' => ''])}}
+					@if($item->fixed_price)
+						{{Form::checkbox('fixed_price', 1,true,['id' => 'fixed_price']) }}
+					@else
+						{{Form::checkbox('fixed_price', 1,false,['id' => 'fixed_price']) }}
+					@endif
+				</div>
+				<div class="checkbox-wrap">
+					{{Form::label('negotiate_price', 'Dogovor',['class' => ''])}}
+					@if($item->negotiate_price)
+						{{Form::checkbox('negotiate_price', 1, true, ['id' => 'negotiate_price']) }}
+					@else
+						{{Form::checkbox('negotiate_price', 1, false, ['id' => 'negotiate_price']) }}
+					@endif
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 col-lg-9">
+				<div class="form-group">
+					{{Form::label('description', 'Opis',['class' => ''])}}
+					{{Form::textarea('description',null,['id'=>'description','class'=>'input-data input-info form-control','placeholder'=>'Opis'])}}
+					<div class="error-msg"></div>
+				</div>
+			</div>
+		</div>
+		@include('market/partials/market-contact')
+		<div class="row">
+			<div class="col-sm-12">
+				<div id="drpzn" class="">
+					<div id="show" class="input-info">
+						<div id="add-img">
+							<i class="fas fa-camera-retro"></i>
+							<i class="fas fa-plus"></i>
+							<small id="brojfotografija">Broj fotografija: <b></b></small>
+						</div>
+						<div class="error-msg"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		{{Form::button('Sačuvaj izmene', ['id'=>'submit-btn','class' => 'btn btn-primary','type'=>'submit'])}}
+	{{Form::close()}}
+</div>
+@endsection
+@section('content-js')
+	<script src="{{asset('js/market/edit-parts.js')}}"></script>
+@endsection
