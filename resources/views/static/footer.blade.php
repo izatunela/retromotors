@@ -48,7 +48,7 @@
 		</div>
 		<div class="footer-divide"></div>
 		<div class="footer-copyright">
-			<span class="footer-company-name">Retro Motors &copy; 2020</span>
+			<span class="footer-company-name">Retro Motors &copy; 2021</span>
 			<div class="footer-company-name">Developed by Marko Ivanovic</div>
 		</div>
 	</div>
